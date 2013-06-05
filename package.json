@@ -1,10 +1,13 @@
 {
   "name": "neovacui",
   "version": "0.1.0",
-  "description" : "ui for neovac",
-  "main" : "web.js",
+  "description": "ui for neovac",
+  "main": "web.js",
   "dependencies": {
-    "node-static" : "~0.6.5"
+    "node-static": "~0.6.5",
+    "coffee-script": "~1.6.3",
+    "gzippo": "~0.2.0",
+    "express": "~3.2.6"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -29,7 +32,7 @@
     "matchdep": "~0.1.1",
     "grunt-google-cdn": "~0.1.1",
     "grunt-ngmin": "~0.0.2",
-    "node-static" : "~0.6.5"
+    "node-static": "~0.6.5"
   },
   "engines": {
     "node": ">=0.8.0"
