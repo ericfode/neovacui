@@ -1,0 +1,9 @@
+<div class="pure-g-r home">
+  <div class="pure-u-3-2">
+  <div class="splash pure-u-1-1">
+    <h1 class="center">NeoVac</h1>
+    <form class="pure-form">
+      <input class="search" type="text" placeholder="App Name/App ID/Request ID"  name="value" ng-model="query" required>
+    </form>
+  </div>
+</div>
