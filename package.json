@@ -1,6 +1,8 @@
 {
   "name": "neovacui",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description" : "ui for neovac",
+  "main" : "web.js",
   "dependencies": {
     "node-static" : "~0.6.5"
   },
