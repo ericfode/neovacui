@@ -36,6 +36,7 @@ $grey: #666;
 .header-bar{
   height:2em;
 }
+
 #header-text{
   text-align:center;
   height:auto;
@@ -44,6 +45,7 @@ $grey: #666;
   font-family: 'Raleway', sans-serif; 
   width:98%;
 }
+
 span.name{
   padding-top:.5em;
   float:left;
@@ -97,26 +99,11 @@ div.info-ext{
   width:100%;
 }
 
-#menu-container{
-  width:200px;
-  position: fixed;
-  z-index:0;
-  margin-left:-201px;
-  left:200px;
-  bottom:0;
-  top:0;
-  overflow-y:auto;
-  background-color: #FFFFFF;
-  border: 1px solid #CCC;
-  margin-top:-1px;
-}
-
 #menu{
   border: 0px;
 }
 
 #layout{
-  padding-left: 201px;
   padding-top: 50px;
   left:0;
 }
@@ -126,7 +113,6 @@ div.info-ext{
   z-index:1000;
   width:100%;
   margin-top:-1px;
-  margin-left:-1px;
   top:0;
 }
 
@@ -135,7 +121,7 @@ div.info-ext{
 }
 
 h1{ 
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 60px;
   font-weight:300;
   color: $grey;

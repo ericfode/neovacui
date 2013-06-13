@@ -6,15 +6,6 @@
     </form>
     </div>
  
-  <div class="pure-u" id="menu-container">
-    <div class="pure-menu pure-menu-open" id="menu">
-      <a class="pure-menu-heading" href="/">NeoVac</a>
-      <ul>
-        <li ng-repeat="xid in xids"><a ng-href="#{{xid.request_id}}" href="">{{xid.request_id.slice(-12)}}</a></li>
-     </ul>
-    </div>
-  </div>
-  
   <div class="pure-u" id="main">
     <div class="pure-u-1">
       <div class="info" id="{{xid.request_id}}" ng-repeat="xid in xids">
