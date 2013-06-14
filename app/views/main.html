@@ -1,7 +1,7 @@
 <div class="pure-g-r" id="layout" ng-controller="xidCtrl">
   <div class="pure-u-1" id="search" ng-submit="updateLocation()">
       <form class="pure-form">
-      <input class="pure-input search" id="search-bar" type="text" placeholder="App Name/App ID/Request ID"  name="value" ng-model="query" required>
+        <input class="pure-input search" id="search-bar" type="text" placeholder="App Name/App ID/Request ID"  name="value" ng-model="query" required></input>
       <input type="submit" style="visibility: hidden;"/>
     </form>
     </div>
@@ -9,9 +9,9 @@
   <div class="pure-u" id="main">
     <div class="pure-u-1" >
       <div class="info" id="{{xid.request_id}}" ng-repeat="xid in xids">
-        <div class="header-bar" ng-class="{128:'fail', 0:'success'}[xid.exit]">
+        <div class="header-bar" ng-class="{128:'fail', 0:'success', null:'user-fail'}[xid.exit]">
         <div id="header-text">
-          <span class="name">{{xid.request_id}}</span>
+          <span class="name"><a href="#/request_id/{{xid.request_id}}">{{xid.request_id}}</a></span>
           <span class="arrow" ng-click="visible = !visible" ng-init="visible=true">
             <i ng-class="{true: 'icon-caret-up', false:'icon-caret-down'}[visible]" class="icon-2x"></i> </span>
         </div>
@@ -19,11 +19,12 @@
       <div class="extended info-ext" 
         ng-class="{false:'collapsed', true:'expanded'}[visible]">
         <div class="details">
-          <h3>{{xid.app_name}}</h3>
-          <p>{{xid.app_id}}</p>
+          <h3><a href="#/app/{{xid.app_name}}">{{xid.app_name}}</a></h3>
+          <a href="#/app_id/{{xid.app_id}}"> {{xid.app_id}}</a>
           <p>{{xid.stack}}</p>
           <p>{{xid.email}}</p>
           <p>{{xid.action}}</p>
+          <p>{{xid.exception}}</p>
           <pre>{{xid.output}}</pre>
         </div>
       </div>

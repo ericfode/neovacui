@@ -3,7 +3,8 @@
 neovacUIApp.controller( 'xidCtrl', ['$scope','XidSet', '$location',
                        '$routeParams',
                        function($scope, XidSet,$location,$routeParams){
-  $scope.updateXidSet = function(){
+    $scope.query = $routeParams.value    
+    $scope.updateXidSet = function(){
     console.log('getting xids');
     console.log($routeParams);
     $scope.xids = XidSet.query({value: $routeParams.value,
@@ -11,6 +12,7 @@ neovacUIApp.controller( 'xidCtrl', ['$scope','XidSet', '$location',
     console.log('done getting xids');
     console.log($scope.xids);
   };
+  
   $scope.updateLocation = function(){
     var isUUID = /([0-9a-fA-F]*-[0-9a-fA-F]*-[0-9a-fA-F]*-[0-9a-fA-F]*-[0-9a-fA-F]*)/;
     var isAppID = /^[0-9]+$/;
@@ -18,7 +20,7 @@ neovacUIApp.controller( 'xidCtrl', ['$scope','XidSet', '$location',
     var value = $scope.query;
     if (isUUID.test($scope.query)){
       console.log('found uuid');
-      kind ='xid';
+      kind = 'request_id';
     }
     else if (isAppID.test($scope.query)){
       console.log('found AppId');

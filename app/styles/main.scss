@@ -1,8 +1,8 @@
-$heroku: #6efbaa;
+$heroku: #6e5baa;
 $green: #48854d; 
 $red:  #dd5642;
 $grey: #666;
-
+$orange: #E88A4E;
 .splash {
   margin: auto;
 
@@ -68,6 +68,11 @@ div.info-ext{
   background-color: $red;
 }
 
+.user-fail{
+  background-color: $orange;
+}
+
+
 .success{
   background-color: $green;
 }
@@ -77,6 +82,10 @@ div.info-ext{
   border-color: $red;
 }
 
+
+.user-fail ~ .extended{
+  border-color: $orange;
+}
 .success ~ .extended{
   border-color: $green;
 }
@@ -89,6 +98,15 @@ div.info-ext{
 
 .expanded{
   display:block;
+}
+
+a{
+  text-decoration: none;
+  color: $heroku;
+}
+
+.name > a {
+  color: #FFF;  
 }
 
 #search-bar{
