@@ -1,6 +1,6 @@
 'use strict';
 
-var neovacUIApp = angular.module('neovacUIApp', ['ngResource', 'nvServices']);
+var neovacUIApp = angular.module('neovacUIApp', ['ngResource', 'nvServices','herokuOauth']);
 
 neovacUIApp.config(function ($locationProvider, $routeProvider) {
   $routeProvider
@@ -10,7 +10,7 @@ neovacUIApp.config(function ($locationProvider, $routeProvider) {
     })
     .when('/:kind/:value', {
       templateUrl: 'views/main.html',
-      controller: 'MainCtrl'
+      controller: 'xidCtrl'
     })
     .otherwise({
       redirectTo: '/'
