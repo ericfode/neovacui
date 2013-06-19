@@ -3,23 +3,9 @@
 var neovacUIApp = angular.module('neovacUIApp');
 
 
-neovacUIApp.config(function(TokenProvider){
-  var baseUrl = document.URL;
-  TokenProvider.extendConfig({
-    clientId: '93fd898c-8bd8-41cc-bc22-af5bd04b9408',
-    redirectUri: baseUrl + 'auth/heroku/callback',
-    authorizationEndpoint: 'https://id.heroku.com/oauth/authorize',
-    verifyFunc: function(){
-      return true;
-    }
-  });
-});
-
-
-
 neovacUIApp.controller( 'xidCtrl', ['$scope','XidSet', '$location',
-                       '$routeParams', 'Token',
-                       function($scope, XidSet,$location,$routeParams,Token){
+                       '$routeParams', 
+                       function($scope, XidSet,$location,$routeParams){
     $scope.query = $routeParams.value    
     $scope.updateXidSet = function(){
     console.log('getting xids');
@@ -29,23 +15,6 @@ neovacUIApp.controller( 'xidCtrl', ['$scope','XidSet', '$location',
     console.log('done getting xids');
     console.log($scope.xids);
   };
-
-   $scope.accessToken = Token.get();
-   $scope.authenticate = function() {
-      Token.getTokenByPopup()
-        .then(function(params){
-          Token.verifyAsync(params.access_token).
-            then(function(data) {
-              $scope.accessToken = params.access_token;
-              $scope.expiresIn = params.expires_in
-              Toekn.set(params.access_token);
-            }, function(){
-              alert("token failed")
-            });
-        }, function(){
-          alert("failed to get token from popup");
-   });
-   };
   
    $scope.getDate = function(timestamp){
     // create a new javascript Date object based on the timestamp
