@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'sinatra/cookies'
 
 
 set :root, File.dirname(__FILE__) + '/dist'
