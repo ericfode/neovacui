@@ -9,10 +9,11 @@ angular.module('herokuAPI', ['ngCookies']).
     this.extendConfig = function(configExtension){
       config = angular.extend(config, configExtension);
     };
-    this.$get = function($cookieStore){
+    this.$get = function($cookies){
       return {
         get: function(){
-          var cookie = $cookieStore.get('token');
+          var cookie = $cookies['token'];
+          console.log($cookies.text);
           if (cookie === null){
             cookie = localStorage.token;
           }

@@ -6,7 +6,7 @@ neovacUIApp.config(function ($locationProvider, $routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'views/main.html',
-      controller: 'MainCtrl'
+      controller: 'xidCtrl'
     })
     .when('/:kind/:value', {
       templateUrl: 'views/main.html',
