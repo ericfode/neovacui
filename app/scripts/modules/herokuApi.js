@@ -9,15 +9,15 @@ angular.module('herokuAPI', ['ngCookies']).
     this.extendConfig = function(configExtension){
       config = angular.extend(config, configExtension);
     };
-    this.$get = function($cookies){
+    this.$get = function($http){
       return {
         get: function(){
-          var cookie = $cookies['token'];
-          console.log($cookies.text);
-          if (cookie === null){
-            cookie = localStorage.token;
+          var api = $http.get('/auth');
+          console.log(api);
+          if (api.auth === null){
+            return localStorage.token;
           }
-          return cookie;
+          return api.auth;
         }
       };
     };
