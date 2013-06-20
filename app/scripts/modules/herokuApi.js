@@ -12,12 +12,14 @@ angular.module('herokuAPI', ['ngCookies']).
     this.$get = function($http){
       return {
         get: function(){
-          var api = $http.get('/auth');
-          console.log(api);
-          if (api.auth === null){
+          var api = {};
+          $http.get('/auth').success(function(data) {
+            api = data.auth;
+          });
+          if( api === null){
             return localStorage.token;
           }
-          return api.auth;
+          return api;
         }
       };
     };
