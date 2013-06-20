@@ -1,6 +1,6 @@
 'use strict';
 
-var neovacUIApp = angular.module('neovacUIApp', ['ngResource', 'nvServices','herokuOauth']);
+var neovacUIApp = angular.module('neovacUIApp', ['ngResource', 'nvServices']);
 
 neovacUIApp.config(function ($locationProvider, $routeProvider) {
   $routeProvider
