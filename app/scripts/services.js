@@ -6,7 +6,7 @@ angular.module('nvServices', ['ngResource','herokuAPI'])
                      {value: 'value', kind: 'kind'}, {
       query:{
         method: 'GET',
-        headers:{ 'Authorization' : 'Basic ' + Base64.encode(':'+herokuKey.get())},
+        headers:{ 'Authorization' : 'Basic ' + Base64.encode(':'+herokuKey.get().auth)},
         isArray:true
       }
     });
