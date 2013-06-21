@@ -1,13 +1,25 @@
 'use strict';
 
-angular.module('nvServices', ['ngResource','herokuAPI'])
-  .factory('XidSet', function($resource, herokuKey){
-    return $resource('http://neovac.herokuapp.com/:kind/:value.json',
-                     {value: 'value', kind: 'kind'}, {
-      query:{
-        method: 'GET',
-        headers:{ 'Authorization' : 'Basic ' + Base64.encode(':'+herokuKey.get().auth)},
-        isArray:true
-      }
-    });
+angular.module('nvServices', ['herokuAPI'])
+  .provider('XidSet', function( ){
+    var config = {};
+    this.extendConfig = function(configExtension){
+      config = angular.extend(config, configExtension);
+    };
+    
+    this.$get = function($http,herokuKey){
+      return {
+        query: function(params){
+          return herokuKey.get().then(function(auth) {
+            return $http({
+              method: 'GET',
+              url:'https://neovac.herokuapp.com/'+params.kind+ '/' + params.value +'.json',
+              headers: {
+                'Authorization': 'Basic ' + Base64.encode(':'+auth)
+              }
+            });
+          });
+        }
+      };
+    };
   });
