@@ -8,7 +8,6 @@ set :static, true
 
 
 get '/' do 
-  cookies[:token] = request.env['bouncer.token']
   File.read(File.join('dist', 'index.html'))
 end
 
