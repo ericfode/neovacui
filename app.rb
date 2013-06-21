@@ -19,6 +19,5 @@ end
 # I WILL HUNT YOU DOWN
 get '/auth' do
   content_type :json 
-#j  {:auth =>  request.env['bouncer.token']}.to_json
-  {:auth => "derp"}.to_json
+  {:auth =>  request.env['bouncer.token']}.to_json
 end
