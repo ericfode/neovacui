@@ -13,7 +13,7 @@ angular.module('herokuAPI', ['ngCookies']).
       return {
         get: function(){
           var defer = $q.defer();
-          if( localStorage.token !== null){
+          if( localStorage.token != null){
             defer.resolve(localStorage.token);
           }
           $http.get('/auth').success(function(data) {
