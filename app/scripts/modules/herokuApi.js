@@ -16,11 +16,9 @@ angular.module('herokuAPI', ['ngCookies']).
           if( localStorage.token !== null){
             defer.resolve(localStorage.token);
           }
-          if(localStorage.token === null){
-            $http.get('/auth').success(function(data) {
-              defer.resolve(data.auth);
-            });
-          }
+          $http.get('/auth').success(function(data) {
+            defer.resolve(data.auth);
+          });
           return defer.promise;
         }
       };
