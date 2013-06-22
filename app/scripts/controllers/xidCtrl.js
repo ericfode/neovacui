@@ -8,17 +8,17 @@ neovacUIApp.controller( 'xidCtrl', ['$scope','XidSet', '$location',
 function($scope, XidSet,$location,$routeParams){
     $scope.query = $routeParams.value;
     $scope.updateXidSet = function(){
-      console.log('getting xids');
-      console.log($routeParams);
       $scope.xids = XidSet.query({value: $routeParams.value,
                                  kind: $routeParams.kind});
-      console.log('done getting xids');
-      console.log($scope.xids);
     };
+    
     $scope.getDate = function(timestamp){
       // create a new javascript Date object based on the timestamp
       // multiplied by 1000 so that the argument is in milliseconds, not seconds
-      var date = new Date(timestamp*1000);
+      if (timestamp === null){
+        return "none"
+      }
+      var date = new Date(parseInt(timestamp));
       return date.toUTCString();
     };
 
